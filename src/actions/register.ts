@@ -6,6 +6,8 @@ import { prisma } from "@/utils/prisma";
 
 
 export async function registerUser (formData: IFormDada) {
+    console.log("FORM SUBMITTED:", formData)
+
     const {email, password, confirmPassword} = formData
 
     if (password !== confirmPassword) {
