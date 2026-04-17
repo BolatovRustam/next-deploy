@@ -65,8 +65,6 @@ const RegistrationForm = ({ onClose }: IProps) => {
 
         const result = await registerUser(formData)
 
-        console.log("result")
-
         onClose();
     };
 

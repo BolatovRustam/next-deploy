@@ -3,7 +3,6 @@
 import { IFormDada } from "@/types/form-data";
 import { saltAndHashPassword } from "@/utils/password";
 import { prisma } from "@/utils/prisma";
-import { error } from "console";
 
 
 export async function registerUser (formData: IFormDada) {
