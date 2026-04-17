@@ -23,6 +23,8 @@ export async function getRecipes() {
 
 export async function createRecipe(formData: FormData) {
     try {
+        console.log("CREATE-RECIPE:", formData)
+
         const name = formData.get("name") as string;
         const description = formData.get("description") as string
         const imageUrl = formData.get("imageUrl") as string | null
@@ -73,6 +75,8 @@ export async function createRecipe(formData: FormData) {
 
 export async function updateRecipe(id: string, formData: FormData) {
     try {
+        console.log("UPDATE-RECIPE:", `${id} ${formData}`)
+
         const name = formData.get("name") as string;
         const description = formData.get("description") as string
         const imageUrl = formData.get("imageUrl") as string | null
@@ -124,6 +128,8 @@ export async function updateRecipe(id: string, formData: FormData) {
 
 export async function deleteRecipe(id: string) {
     try {
+        console.log("DELETE-RECIPE:", id)
+
         await prisma.recipeIngredient.deleteMany({
             where: { recipeId: id }
         })

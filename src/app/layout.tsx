@@ -8,6 +8,7 @@ import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth/auth";
 import AppLoader from "@/hoc/app-loader";
 import Title from "@/components/UI/layout/title";
+import { Toast } from "@heroui/react";
 
 
 const geistSans = Geist({
@@ -42,6 +43,7 @@ export default async function RootLayout({
       <body className="h-screen flex flex-col ">
         <SessionProvider session={session}>
           <AppLoader>
+            <Toast.Provider />
             <div className="flex min-h-screen flex-col justify-between">
               <div className="flex flex-col">
                 <Header />

@@ -7,7 +7,7 @@ import { Prisma } from "@prisma/client"
 
 export async function createIngredient(formData: FormData) {
     try {
-        console.log("formData", formData);     
+        console.log("CREATE-INGREDIENT:", formData);     
         
         const data = {
             name: formData.get("name") as string,
@@ -55,6 +55,8 @@ export async function getIngredients () {
 
 export async function deleteIngredient(id:string) {
     try {
+     console.log("DELETE-INGREDIENT:", id);   
+
      const ingredient = await prisma.ingredient.delete({
         where: {id}
      })

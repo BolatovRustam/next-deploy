@@ -1,7 +1,7 @@
 "use client"
 
 import { registerUser } from "@/actions/register";
-import { Button, Form, Input } from "@heroui/react";
+import { Button, Form, Input, toast } from "@heroui/react";
 import { useState } from "react";
 
 interface IProps {
@@ -65,7 +65,12 @@ const RegistrationForm = ({ onClose }: IProps) => {
 
         const result = await registerUser(formData)
 
-        onClose();
+        if ('error' in result) {
+        toast.danger(result.error || "Ошибка при регистрации")
+    } else {
+        toast.success("Регистрация прошла успешно!")
+        onClose()
+    }
     };
 
     return (
